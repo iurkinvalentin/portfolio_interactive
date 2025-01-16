@@ -137,5 +137,5 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-TELEGRAM_BOT_TOKEN = "8158273796:AAEfVHJgDYB_DGa7Q7L4w7jhWBduPHoA200"
-TELEGRAM_CHAT_ID = "414787205"
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')

@@ -9,5 +9,5 @@ router.register(r'projects', ProjectViewSet, basename='project')
 # Подключаем маршруты
 urlpatterns = [
     path('/portfolio/', include(router.urls)),
-    path('portfolio/webhook/', WebhookAPIView.as_view(), name='webhook'),
+    path('/portfolio/webhook/', WebhookAPIView.as_view(), name='webhook'),
 ]
