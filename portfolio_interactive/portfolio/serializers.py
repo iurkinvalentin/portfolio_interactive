@@ -11,4 +11,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ContactFormSubmissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactFormSubmission
-        fields = '__all__'
+        fields = ['name', 'email', 'message']
