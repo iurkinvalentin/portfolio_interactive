@@ -25,6 +25,18 @@ class WebhookAPIView(APIView):
         serializer = ContactFormSubmissionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+
+            # Формируем сообщение для отправки в Telegram
+            message = (
+                f"Новое сообщение из формы:\n\n"
+                f"<b>Имя:</b> {request.data.get('name')}\n"
+                f"<b>Email:</b> {request.data.get('email')}\n"
+                f"<b>Сообщение:</b> {request.data.get('message')}"
+            )
+
+            # Отправка сообщения в Telegram
+            send_to_telegram(message)
+
             return Response({"message": "Form submitted successfully!"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
