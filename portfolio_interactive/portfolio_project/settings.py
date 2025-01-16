@@ -136,3 +136,6 @@ REST_FRAMEWORK = {
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+TELEGRAM_BOT_TOKEN = "8158273796:AAEfVHJgDYB_DGa7Q7L4w7jhWBduPHoA200"
+TELEGRAM_CHAT_ID = "414787205"
