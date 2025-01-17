@@ -123,7 +123,7 @@ INSTALLED_APPS += [
 MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 CORS_ALLOWED_ORIGINS = [
-    'https://tangy-toys-swim.loca.lt',
+    'https://tilda.cc',
     'http://portfoliointeractiva.tilda.ws',
     'https://portfolio-interactive.onrender.com',
 ]

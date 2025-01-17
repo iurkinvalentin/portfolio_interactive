@@ -5,6 +5,8 @@ from rest_framework import status, viewsets
 from .models import Project
 from django.conf import settings
 from .serializers import ProjectSerializer, ContactFormSubmissionSerializer
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -20,8 +22,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class WebhookAPIView(APIView):
     def post(self, request, *args, **kwargs):
+        print("Полученные данные:", request.data)
         serializer = ContactFormSubmissionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -36,8 +40,10 @@ class WebhookAPIView(APIView):
 
             # Отправка сообщения в Telegram
             send_to_telegram(message)
+            print("Данные успешно сохранены и отправлены в Telegram.")
 
             return Response({"message": "Form submitted successfully!"}, status=status.HTTP_201_CREATED)
+        print("Ошибки валидации:", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
