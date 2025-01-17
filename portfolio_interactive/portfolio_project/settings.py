@@ -113,7 +113,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://tangy-toys-swim.loca.lt']
+CSRF_TRUSTED_ORIGINS = [
+    'https://portfolio-interactive.onrender.com',
+    'http://portfoliointeractiva.tilda.ws',
+]
 
 
 INSTALLED_APPS += [
