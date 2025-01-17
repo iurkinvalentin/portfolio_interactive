@@ -124,7 +124,8 @@ MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 CORS_ALLOWED_ORIGINS = [
     'https://tangy-toys-swim.loca.lt',
-    'http://portfoliointeractiva.tilda.ws'
+    'http://portfoliointeractiva.tilda.ws',
+    'https://portfolio-interactive.onrender.com',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
